@@ -5,7 +5,6 @@ const Constants = require('../utils/constants');
 const MusicsRepository = require('../port/musics_repository');
 const Constraints = require('../utils/musics_validation');
 const Validation = require('../utils/validation');
-const { MusicModel } = require('../infrastructure/database');
 
 const Musics = {
     async create(data) {
@@ -15,8 +14,6 @@ const Musics = {
                 return validation;
             }
 
-            const allElements = await MusicsRepository.list();
-            data["id"] = allElements.length
             const response = await MusicsRepository.create(data);
 
             if (response.code === 11000) {

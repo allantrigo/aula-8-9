@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const { v4: uuidv4 } = require('uuid');
+const MusicsRepository = require('../port/musics_repository');
 
 const Constants = require('./constants');
 
@@ -19,6 +19,11 @@ const Utils = {
                 if (typeof data === "object") return StatusCodes.OK;
                 else return StatusCodes.INTERNAL_SERVER_ERROR;
         }
+    },
+
+    async getID() {
+        const allElements = await MusicsRepository.list();
+        return allElements.length
     }
 };
 
