@@ -16,14 +16,10 @@ const Utils = {
             case Constants.ErrorNotFound.name:
                 return StatusCodes.NOT_FOUND;
             default:
-                if (data.name || data.object || data.lenght > -1) return StatusCodes.OK;
+                if (typeof data === "object") return StatusCodes.OK;
                 else return StatusCodes.INTERNAL_SERVER_ERROR;
         }
-    },
-
-    generateUuid() {
-        return uuidv4();
-    },
+    }
 };
 
 module.exports = Utils;

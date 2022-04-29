@@ -5,17 +5,18 @@ const Constants = require('../utils/constants');
 const MusicsRepository = require('../port/musics_repository');
 const Constraints = require('../utils/musics_validation');
 const Validation = require('../utils/validation');
+const { MusicModel } = require('../infrastructure/database');
 
 const Musics = {
     async create(data) {
         try {
-            const validation = Validation.create(data, Constraints.create);
+            const validation = Validation.create(data);
             if (validation) {
                 return validation;
             }
 
-            data.id = Utils.generateUuid();
-
+            const allElements = await MusicsRepository.list();
+            data["id"] = allElements.length
             const response = await MusicsRepository.create(data);
 
             if (response.code === 11000) {
@@ -85,6 +86,16 @@ const Musics = {
     async list() {
         try {
             const response = await MusicsRepository.list();
+
+            return response;
+        } catch (error) {
+            return error;
+        }
+    },
+
+    async deleteAll() {
+        try {
+            const response = await MusicsRepository.deleteAll();
 
             return response;
         } catch (error) {

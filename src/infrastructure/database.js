@@ -12,7 +12,7 @@ const { Schema } = mongoose;
 
 const MusicSchema = new Schema({
     id: {
-        type: String,
+        type: Number,
         index: true,
         unique: true,
     },
