@@ -6,7 +6,8 @@ const Constants = require('./constants');
 const Utils = {
     responseStatus(data) {
         switch (data) {
-            case undefined || null:
+            case undefined:
+            case null:
                 return StatusCodes.OK;
             case Constants.ErrorValidation.name:
                 return StatusCodes.BAD_REQUEST;
@@ -14,10 +15,9 @@ const Utils = {
                 return StatusCodes.CONFLICT;
             case Constants.ErrorNotFound.name:
                 return StatusCodes.NOT_FOUND;
-            case data:
-                return StatusCodes.OK;
             default:
-                return StatusCodes.INTERNAL_SERVER_ERROR;
+                if (data.name || data.object || data.lenght > -1) return StatusCodes.OK;
+                else return StatusCodes.INTERNAL_SERVER_ERROR;
         }
     },
 
