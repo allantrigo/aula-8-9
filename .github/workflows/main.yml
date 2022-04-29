@@ -14,3 +14,5 @@ jobs:
      - uses: actions/setup-node@v3
      - run: npm install
      - run: npm test
+       env:
+          CONNECT_STRING: ${{ secrets.TEST_DB_SECRET }}
