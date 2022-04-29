@@ -4,7 +4,7 @@ const Constraints = require('./musics_validation');
 
 const Validation = {
     create(data) {
-        const validation = validate.validate(data.name, { presence: true });
+        const validation = validate.validate(data, Constraints.create);
         if (validation) {
             const response = Constants.ErrorValidation;
             response.message = validation;

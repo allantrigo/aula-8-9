@@ -1,18 +1,18 @@
 const create = {
     name: { presence: { allowEmpty: false, type: "string" } },
-    year: { presence: { allowEmpty: true, type: "number" } },
-    albumName: { presence: { allowEmpty: true, type: "string" } },
-    bandName: { presence: { allowEmpty: true, type: "string" } },
-    genre: { presence: { allowEmpty: true, type: "string" } },
+    year: { presence: false, type: "number" },
+    albumName: { presence: false, type: "string" },
+    bandName: { presence: false, type: "string" },
+    genre: { presence: false, type: "string" },
 };
 
 const update = {
-    id: { presence: { allowEmpty: true, type: "string" } },
-    name: { presence: { allowEmpty: true, type: "string" } },
-    year: { presence: { allowEmpty: true, type: "number" } },
-    albumName: { presence: { allowEmpty: true, type: "string" } },
-    bandName: { presence: { allowEmpty: true, type: "string" } },
-    genre: { presence: { allowEmpty: true, type: "string" } },
+    id: { presence: { allowEmpty: false, type: "number" } },
+    name: { presence: false, type: "string" },
+    year: { presence: false, type: "number" },
+    albumName: { presence: false, type: "string" },
+    bandName: { presence: false, type: "string" },
+    genre: { presence: false, type: "string" },
 };
 
 const get = {
@@ -21,7 +21,7 @@ const get = {
 };
 
 const deleteBy = {
-    id: { presence: { allowEmpty: true, type: "string" } },
+    id: { presence: { allowEmpty: true, type: "number" } },
 };
 
 
