@@ -1,3 +1,4 @@
+[![CI](https://github.com/allantrigo/aula-8-9/actions/workflows/main.yml/badge.svg)](https://github.com/allantrigo/aula-8-9/actions/workflows/main.yml)
 # aula-8-9
 Esse projeto é um exemplo sobre como o Jest realiza os testes de uma aplicação rest com CRUD sobre músicas.
 
