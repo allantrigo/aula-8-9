@@ -19,6 +19,11 @@ module.exports = (app) => {
         res.status(Utils.responseStatus(response));
         res.json(response);
     });
+    app.delete(`${route}/deleteAll`, async(req, res) => {
+        const response = await Musics.deleteAll();
+        res.status(Utils.responseStatus(response));
+        res.json(response);
+    });
     app.get(`${route}/list`, async(req, res) => {
         const response = await Musics.list();
         res.status(Utils.responseStatus(response));
